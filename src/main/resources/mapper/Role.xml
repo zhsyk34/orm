@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cat.orm.entity">
+    <class name="Role">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+
+        <!--unique="true"-->
+        <property name="name" type="string" length="60" not-null="true" unique-key="role_name"/>
+
+        <many-to-one name="user" column="user_id" class="User" cascade="all" fetch="join" not-null="true" foreign-key="user_role"/>
+
+        <!--<many-to-one name="personCard" column="cardId" cascade="all"/>-->
+        <!--<set name="roles" cascade="all,delete-orphan" lazy="true" inverse="false" order-by="name">
+            &lt;!&ndash;foreign-key="user_role"&ndash;&gt;
+            &lt;!&ndash;not-null="true"&ndash;&gt;
+            &lt;!&ndash;若将 1 方设为主控方,会额外多出 update 语句。插入数据时无法同时插入外键列，因而无法为外键列添加非空约束.&ndash;&gt;
+            <key column="userId"/>
+            <one-to-many class="Role"/>
+        </set>-->
+    </class>
+</hibernate-mapping>
