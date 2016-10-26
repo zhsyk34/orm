@@ -1,16 +1,8 @@
 package com.cat.orm.dao;
 
 import com.cat.orm.entity.User;
+import com.cat.orm.kit.CommonDao;
 
-import java.util.List;
+public class UserDao extends CommonDao<User, Long> {
 
-public interface UserDao {
-
-    boolean save();
-
-    boolean update();
-
-    int delete();
-
-    List<User> find();
 }

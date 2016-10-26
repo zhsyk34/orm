@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cat.orm.entity">
+    <class name="Function">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+
+        <property name="name" type="string" length="60" not-null="true"/>
+
+        <many-to-one name="role" column="role_id" class="Role" cascade="all" fetch="join" not-null="true" foreign-key="role_function"/>
+    </class>
+</hibernate-mapping>

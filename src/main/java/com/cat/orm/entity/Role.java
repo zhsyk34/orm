@@ -15,4 +15,12 @@ public class Role {
 
     private User user;
     private Set<Function> functions;
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

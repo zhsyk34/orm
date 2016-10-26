@@ -17,7 +17,17 @@
 
         <property name="phone" type="string" length="11"/>
 
-        <set name="roles" inverse="true" cascade="delete" lazy="false" fetch="join">
+        <!--TODO:DEFAULT VALUE FOR ENUM-->
+        <property name="gender">
+            <!--default="MALE" not-null="false"-->
+            <column name="gender"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.cat.orm.entity.enums.Gender</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+
+        <set name="roles" inverse="true" cascade="all" lazy="true" fetch="select">
             <key column="user_id"/>
             <one-to-many class="Role"/>
         </set>
@@ -29,5 +39,10 @@
             <key column="userId"/>
             <one-to-many class="Role"/>
         </set>-->
+        <sql-insert></sql-insert>
+        <sql-query name="findUser">
+            <return alias="user" class="User"/>
+            <![CDATA[select * from user]]>
+        </sql-query>
     </class>
 </hibernate-mapping>

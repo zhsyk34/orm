@@ -12,7 +12,7 @@
         <property name="connection.pool_size">1</property>
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <!-- Enable Hibernate's automatic session context management -->
+        <!-- Enable Hibernate's automatic current context management -->
         <property name="current_session_context_class">thread</property>
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
@@ -26,5 +26,6 @@
 
         <mapping resource="mapper/User.xml"/>
         <mapping resource="mapper/Role.xml"/>
+        <mapping resource="mapper/Function.xml"/>
     </session-factory>
 </hibernate-configuration>

@@ -7,10 +7,15 @@
             <generator class="native"/>
         </id>
 
-        <!--unique="true"-->
-        <property name="name" type="string" length="60" not-null="true" unique-key="role_name"/>
+        <!--unique-key="role_name"-->
+        <property name="name" type="string" length="60" not-null="true"/>
 
         <many-to-one name="user" column="user_id" class="User" cascade="all" fetch="join" not-null="true" foreign-key="user_role"/>
+
+        <set name="functions" inverse="true" cascade="all" lazy="true" fetch="select">
+            <key column="role_id"/>
+            <one-to-many class="Function"/>
+        </set>
 
         <!--<many-to-one name="personCard" column="cardId" cascade="all"/>-->
         <!--<set name="roles" cascade="all,delete-orphan" lazy="true" inverse="false" order-by="name">
