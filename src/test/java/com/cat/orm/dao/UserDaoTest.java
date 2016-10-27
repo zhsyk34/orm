@@ -39,7 +39,9 @@ public class UserDaoTest {
 
 	@Test
 	public void init() {
-
+		User user = new User();
+		user.setName("thk").setPhone("133").setGender(Gender.FEMALE).setBirthday(new Date());
+		session.save(user);
 	}
 
 	@Test

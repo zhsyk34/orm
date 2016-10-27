@@ -410,17 +410,17 @@ public class JpaBaseDao<E, K> {
 	}
 
 	public void flushCache() {
-		getEntityManager().getEntityManagerFactory().getCache().evict(entityClass);
+		getEntityManager().getFactory().getCache().evict(entityClass);
 
 	}
 
 	public JPAContainer<E> createVaadinContainerAndFlushCache(final int sizeLimit) {
-		getEntityManager().getEntityManagerFactory().getCache().evict(entityClass);
+		getEntityManager().getFactory().getCache().evict(entityClass);
 		return createVaadinContainer(sizeLimit);
 	}
 
 	public JPAContainer<E> createVaadinContainerAndFlushCache() {
-		getEntityManager().getEntityManagerFactory().getCache().evict(entityClass);
+		getEntityManager().getFactory().getCache().evict(entityClass);
 		return createVaadinContainer();
 	}
 

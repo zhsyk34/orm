@@ -2,9 +2,12 @@ package com.cat.orm.kit;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.SessionFactoryBuilder;
+import org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl;
+import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
 public class SessionKit {
 
@@ -12,7 +15,7 @@ public class SessionKit {
 	private static final String DEFAULT_CONFIG = "hibernate.xml";
 
 	//version 5?
-	/*private static SessionFactory init() {
+	private static SessionFactory init() {
 		StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder().configure("/" + DEFAULT_CONFIG).build();
 
 		Metadata metadata = new MetadataSources(standardRegistry).getMetadataBuilder().applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE).build();
@@ -20,9 +23,9 @@ public class SessionKit {
 		SessionFactoryBuilder sessionFactoryBuilder = metadata.getSessionFactoryBuilder();
 
 		return sessionFactoryBuilder.build();
-	}*/
+	}
 
-	private static SessionFactory init() {
+	/*private static SessionFactory init() {
 		try {
 			if (sessionFactory == null) {
 				Configuration configuration = new Configuration();
@@ -39,7 +42,7 @@ public class SessionKit {
 			System.err.println("Initial SessionFactory creation failed." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
-	}
+	}*/
 
 	public static SessionFactory getSessionFactory() {
 		return sessionFactory;

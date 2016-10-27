@@ -7,7 +7,8 @@
             <generator class="native"/>
         </id>
 
-        <property name="name" type="string" length="60" not-null="true" unique-key="user_name"/>
+        <!--unique-key="user_name"-->
+        <property name="name" type="string" length="60" not-null="true"/>
 
         <property name="birthday" type="date">
             <column name="birthday">
@@ -39,7 +40,7 @@
             <key column="userId"/>
             <one-to-many class="Role"/>
         </set>-->
-        <sql-insert></sql-insert>
+        <!--<sql-insert></sql-insert>-->
         <sql-query name="findUser">
             <return alias="user" class="User"/>
             <![CDATA[select * from user]]>
